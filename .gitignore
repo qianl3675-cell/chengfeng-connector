@@ -1,0 +1,8 @@
+# Rust 构建产物
+/target
+
+# frpc 二进制（构建前由脚本拉取，体积大不进 git；见 resources/README.md）
+/resources/bin/
+
+# macOS
+.DS_Store

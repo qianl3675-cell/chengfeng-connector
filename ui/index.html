@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>乘风连接器</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <h1>乘风连接器</h1>
+      <p class="sub">把管理员发给你的连接码粘贴进来，点「连接」</p>
+      <textarea id="code" placeholder="在此粘贴连接码……" rows="4" spellcheck="false"></textarea>
+      <div class="btns">
+        <button id="connect" class="primary">连接</button>
+        <button id="disconnect">断开</button>
+      </div>
+      <div id="status" class="status idle">未连接</div>
+      <div id="meta" class="meta"></div>
+      <p class="tip">连接后请保持本程序开启（可最小化）。关掉就断。试用到期会自动停。</p>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

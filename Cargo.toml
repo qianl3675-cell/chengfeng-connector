@@ -1,0 +1,23 @@
+[package]
+name = "chengfeng-connector"
+version = "0.1.0"
+description = "乘风连接器 - 试用阶段内网接入客户端（客户双击出向 socks5 隧道连阿里云专机）"
+edition = "2021"
+rust-version = "1.77"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+base64 = "0.22"
+
+# 发布包减体积
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+strip = true
+panic = "abort"
