@@ -72,7 +72,7 @@ fn build_frpc_config(p: &Payload) -> String {
 serverAddr = "{host}"
 serverPort = {port}
 auth.token = "{token}"
-tls.enable = true
+transport.tls.enable = true
 loginFailExit = false
 
 [[proxies]]
