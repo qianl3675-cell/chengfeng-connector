@@ -76,7 +76,7 @@ transport.tls.enable = true
 loginFailExit = false
 
 [[proxies]]
-name = "trial_socks5"
+name = "trial_socks5_{rport}"
 type = "tcp"
 remotePort = {rport}
 [proxies.plugin]
