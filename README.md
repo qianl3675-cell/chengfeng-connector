@@ -24,7 +24,7 @@ connector/
 
 ## 工作原理
 
-1. 管理员在乘风前端「试用连接器」页开通试用，得到一串 **连接码**（base64 JSON，含 frps 地址/端口/socks5 凭证）。
+1. 管理员在乘风前端「试用连接器」页开通试用，得到一串 **连接码**（base64 JSON，含 frps 地址/端口/租户标识；socks5 隧道开放无凭证，因 Chromium 不支持 socks5 认证）。
 2. 客户在本程序粘贴连接码 → 点「连接」。
 3. 程序 base64 解码连接码 → 生成 `frpc.toml` → 拉起内嵌 frpc 子进程 → frpc 出向连专机 frps(443+TLS)。
 4. 专机的 playwright 浏览器经 socks5 代理（容器名 `chengfeng-frps`）访问客户被测系统。

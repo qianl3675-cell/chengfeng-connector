@@ -18,7 +18,7 @@ struct Payload {
     frps: String, // "host:443"
     remote_port: u16,
     frps_token: String,
-    socks_user: String,
+    socks_user: String,   // 连接码兼容字段：socks5 开放后连接器不再使用（保留以解析旧连接码 JSON）
     socks_pass: String,
     #[serde(default)]
     #[allow(dead_code)]
@@ -81,15 +81,14 @@ type = "tcp"
 remotePort = {rport}
 [proxies.plugin]
 type = "socks5"
-username = "{user}"
-password = "{pass}"
+# 不配 username/password：socks5 隧道开放（Chromium 不支持 socks5 认证，配了反触发
+# ERR_SOCKS_CONNECTION_FAILED 或 Browser does not support socks5 proxy authentication）。
+# 安全兜底：frps auth.token（隧道层鉴权）+ 每租户独占端口 + socks5 端口仅同 docker network 可达。
 "#,
         host = host,
         port = port,
         token = p.frps_token,
         rport = p.remote_port,
-        user = p.socks_user,
-        pass = p.socks_pass,
     )
 }
 
